@@ -1,0 +1,58 @@
+{
+  "name": "capitalflowx-ui-clone",
+  "version": "1.0.0",
+  "description": "CapitalFlowX - UI Clone (React + TypeScript + Vite) - Static SPA with mock API",
+  "private": true,
+  "main": "dist/index.html",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5173",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescript",
+    "tailwind",
+    "mock-api",
+    "spa"
+  ],
+  "author": "CapitalFlowX Clone",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "chart.js": "^4.4.0",
+    "clsx": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.15",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.5.1",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^4.1.15",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.5.6",
+    "vite": "^7.1.11"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
