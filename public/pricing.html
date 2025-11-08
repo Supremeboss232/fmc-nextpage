@@ -3,82 +3,337 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pricing — CapitalFlowX</title>
+  <title>Pricing — FMC NextPage</title>
+
+  <!-- Bootstrap (visual style taken from your example) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+
+  <!-- Site-wide accessible styles (keeps previous theme + Bootstrap) -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+
+  <meta name="description" content="FMC NextPage pricing — multi-currency (USD & EUR). Plans: Start, Pro, Gold, Premium, Diamond. From $515 to $13,374 per month. Scalable, enterprise-grade, and supported.">
+  <link rel="canonical" href="https://supremeboss232.github.io/fmc-nextpage/pricing.html">
 </head>
-<script src="js/auth.js"></script>
-<script>
-  // This ensures user must be logged in before viewing this page
-  const user = requireAuth();
-</script>
-  </script>
-  <script src="/js/auth.js"></script>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold" href="index.html">CapitalFlowX</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="success.html">Success</a></li>
-          <li class="nav-item"><a class="nav-link" href="access.html">Access</a></li>
-          <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
-        </ul>
+  <!-- Header: Bootstrap navbar inspired by pasted design; include-partials will replace if available -->
+  <div id="site-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold" href="/index.html">FMC NextPage</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/courses.html">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="/success.html">Success</a></li>
+            <li class="nav-item"><a class="nav-link" href="/access.html">Access</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <main class="py-5">
     <div class="container">
-      <h1>Pricing</h1>
-      <p class="text-muted">Lock in your current price before it increases. Cancel anytime, risk-free.</p>
+      <h1 class="mb-2">Pricing</h1>
+      <p class="text-muted">Transparent, enterprise-grade pricing. Multi-currency view (USD & EUR). No free tier — plans crafted for professional launch and scale. Cancel anytime (subject to contract terms).</p>
 
+      <!-- Controls: currency and billing period -->
+      <div class="d-flex flex-wrap align-items-center mb-3">
+        <div class="form-inline">
+          <label class="mr-2 font-weight-600" for="currency">Currency</label>
+          <select id="currency" class="custom-select mr-3">
+            <option value="USD" selected>USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+          </select>
+
+          <label class="mr-2 font-weight-600" for="billing">Billing</label>
+          <select id="billing" class="custom-select">
+            <option value="monthly" selected>Monthly</option>
+            <option value="yearly">Yearly (save 20%)</option>
+          </select>
+        </div>
+
+        <div class="ml-auto">
+          <span class="badge badge-pill badge-primary">Enterprise-ready</span>
+        </div>
+      </div>
+
+      <!-- Pricing grid + warning card (follows pasted layout + multi-tier cards) -->
       <div class="row">
-        <div class="col-md-6 mb-3">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h3 class="card-title">Standard</h3>
-              <p class="card-text">Simple-step-by-step tutorials • 19 wealth creation methods • Community chat groups • No experience needed</p>
-              <div class="price-display my-3">
-                <span class="old">$1,417</span>
-                <span class="new h2">$515<span class="per">/month</span></span>
+        <div class="col-lg-8">
+          <div class="row" id="pricing-cards">
+            <!-- Start -->
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card plan shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Start</h5>
+                  <p class="text-muted small">Fast onboarding, reliable infra and starter seat package.</p>
+                  <div class="price-display my-3">
+                    <p class="h3 mb-0 price" data-key="start">—</p>
+                    <small class="text-muted">starting monthly</small>
+                  </div>
+                  <ul class="feature-list small">
+                    <li>Guided onboarding & checklist</li>
+                    <li>10,000 monthly active learners (baseline)</li>
+                    <li>Custom domain & basic branding</li>
+                    <li>Email support (48–72h SLA)</li>
+                  </ul>
+                  <a href="/contact.html?plan=start" class="btn btn-success btn-block mt-3">Request Start — $515+</a>
+                </div>
               </div>
-              <a href="login.html" class="btn btn-success btn-block">Lock In $515 / month</a>
             </div>
+
+            <!-- Pro -->
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card plan featured shadow-sm border-info">
+                <div class="card-body">
+                  <h5 class="card-title">Pro</h5>
+                  <p class="text-muted small">Advanced analytics, collaboration and priority support.</p>
+                  <div class="price-display my-3">
+                    <p class="h2 mb-0 price text-primary" data-key="pro">—</p>
+                    <small class="text-muted">monthly / yearly</small>
+                  </div>
+                  <ul class="feature-list small">
+                    <li>Everything in Start</li>
+                    <li>Up to 50 team seats, role controls</li>
+                    <li>Advanced analytics & cohort tracking</li>
+                    <li>SSO (SAML/OIDC), priority email (24h SLA)</li>
+                  </ul>
+                  <a href="/contact.html?plan=pro" class="btn btn-primary btn-block mt-3">Contact Sales — Pro</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gold -->
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card plan shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Gold</h5>
+                  <p class="text-muted small">Higher quotas, a technical account manager and regional rollout support.</p>
+                  <div class="price-display my-3">
+                    <p class="h3 mb-0 price" data-key="gold">—</p>
+                    <small class="text-muted">monthly / yearly</small>
+                  </div>
+                  <ul class="feature-list small">
+                    <li>Everything in Pro</li>
+                    <li>Dedicated technical account manager</li>
+                    <li>Priority phone & chat, audit logs</li>
+                    <li>Custom onboarding workshops</li>
+                  </ul>
+                  <a href="/contact.html?plan=gold" class="btn btn-outline-primary btn-block mt-3">Contact Sales — Gold</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Premium -->
+            <div class="col-md-6 col-lg-6 mb-3">
+              <div class="card plan shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Premium</h5>
+                  <p class="text-muted small">Extended SLAs, customization, compliance and quarterly business reviews.</p>
+                  <div class="price-display my-3">
+                    <p class="h3 mb-0 price" data-key="premium">—</p>
+                    <small class="text-muted">monthly / yearly</small>
+                  </div>
+                  <ul class="feature-list small">
+                    <li>Everything in Gold</li>
+                    <li>Guaranteed SLAs & uptime commitments</li>
+                    <li>Data residency & compliance support</li>
+                    <li>Quarterly business reviews & adoption services</li>
+                  </ul>
+                  <a href="/contact.html?plan=premium" class="btn btn-outline-primary btn-block mt-3">Talk to Sales — Premium</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diamond -->
+            <div class="col-md-6 col-lg-6 mb-3">
+              <div class="card plan shadow-sm border-dark">
+                <div class="card-body">
+                  <h5 class="card-title">Diamond</h5>
+                  <p class="text-muted small">Fully bespoke global rollouts, dedicated engineering and 24/7 escalation.</p>
+                  <div class="price-display my-3">
+                    <p class="h3 mb-0 price" data-key="diamond">—</p>
+                    <small class="text-muted">monthly / yearly</small>
+                  </div>
+                  <ul class="feature-list small">
+                    <li>Everything in Premium</li>
+                    <li>Dedicated engineering & 24/7 escalation</li>
+                    <li>Multi-region hosting & global deployment assistance</li>
+                    <li>White-glove onboarding and migration</li>
+                  </ul>
+                  <a href="/contact.html?plan=diamond" class="btn btn-dark btn-block mt-3">Contact Sales — Diamond</a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="col-md-6 mb-3">
-          <div class="card border-warning shadow-sm">
+        <!-- Warning / CTA card on the right (matches pasted layout) -->
+        <div class="col-lg-4">
+          <div class="card border-warning shadow-sm mb-3">
             <div class="card-body">
-              <h3>Warning</h3>
-              <p class="small">Price will increase to $1,417 / month soon. This is your last chance to lock-in the lower monthly rate.</p>
-              <a href="login.html" class="btn btn-outline-warning btn-block">Lock In Price</a>
+              <h4 class="card-title">Important pricing note</h4>
+              <p class="small text-warning">List prices are subject to periodic updates. The Start tier opens with an entry price of $515 / month. If you are evaluating, lock a quoted rate by initiating a conversation with our sales team — we provide short-term guarantees with signed quotes.</p>
+              <a href="/contact.html?intent=lock" class="btn btn-outline-warning btn-block">Request Quote / Lock Price</a>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5>Quick decisions</h5>
+              <p class="small text-muted">If you need help choosing a plan, our sales engineers will map your usage (seats, integrations, compliance) to the right tier and provide a transparent, line-item quote.</p>
+              <a href="/contact.html" class="btn btn-primary btn-block">Contact Sales</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body text-center">
+              <h6 class="mb-2">Trusted partner</h6>
+              <p class="small text-muted mb-2">Onboarding, migration and SLA-backed support are available on Gold+.</p>
+              <a href="/register.html" class="btn btn-success btn-block">Get Started — Speak with a Specialist</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="mt-4">
-        <h4>Final Thoughts</h4>
-        <p class="text-muted">Money-making is a skill. Our coaches know the business models they teach and will guide you from your first dollar to scaling a multi-million dollar business.</p>
-        <a href="login.html" class="btn btn-primary">Join CapitalFlowX</a>
-      </div>
+      <!-- Long-form content area: expanded, SEO-friendly, helpful guidance -->
+      <section class="mt-5">
+        <h2>Why our pricing is structured this way</h2>
 
+        <p class="lead text-muted">
+          FMC NextPage is engineered for organizations that treat learning as a strategic capability. We do not offer a free tier because our product investments are focused on delivering enterprise-grade reliability, compliance, and human support from day one. This enables us to deliver predictable outcomes: fast onboarding, secure data handling, measurable learner outcomes, and reduced operational overhead.
+        </p>
+
+        <p>
+          The Start → Diamond progression matches common adoption patterns. Start is designed for professional launches that require reliable infrastructure and predictable seat packages at $515 per month. Pro adds richer analytics, team seats and SSO for growing teams. Gold and Premium increase capacity and assurance through technical account management, performance prioritization and contractual SLAs. Diamond is a bespoke offering for global rollouts with dedicated engineering and legal packaging to meet procurement and regulatory needs.
+        </p>
+
+        <p>
+          Choosing the right plan depends on goals: are you monetizing content, centralizing corporate training, or rolling out regulated compliance programs? For creators and small teams, Pro is often the sweet spot — it provides the analytics and integrations that materially improve conversion and retention. For organizations that need guaranteed uptime, audit trails and legal terms, Premium and Diamond provide contractual assurances and white-glove onboarding to remove migration risk.
+        </p>
+
+        <h3 class="mt-4">What your subscription pays for</h3>
+        <p>
+          Subscriptions fund platform operations, continuous product development, security investments and the human support that accelerates your time to value. Practical items covered by subscription revenue include:
+        </p>
+
+        <ul class="small">
+          <li>Distributed CDN and multi-region caching to keep content fast for learners around the world.</li>
+          <li>Regular security scanning, patching and encryption practices to protect learner and organizational data.</li>
+          <li>Analytics infrastructure that processes engagement, conversions and cohort trends at scale.</li>
+          <li>Ongoing engineering to add integrations, reporting exports and accessibility improvements.</li>
+          <li>Human support and onboarding to reduce your time-to-launch and enable immediate product adoption.</li>
+        </ul>
+
+        <h3 class="mt-4">Multi-currency and billing transparency</h3>
+        <p>
+          To reduce friction for international teams we display list prices in USD and EUR. The EUR amounts shown are for guidance (conversion is an estimate); final billed amounts depend on the payment provider and exchange rates at the time of payment. For Business and Diamond customers we issue invoices and can negotiate billing terms such as net-30 or net-60 where appropriate.
+        </p>
+
+        <h3 class="mt-4">Return on investment (ROI)</h3>
+        <p>
+          The best way to think about ROI is to map subscription cost to concrete outcomes like reduced time-to-onboard, fewer compliance failures, or revenue generated through paid courses. For example, a small course provider on Pro who converts 5% of a 2,000 visitor campaign at an average price of $149 will recover subscription investment quickly and have significant margin for reinvestment. For enterprises, automating training management and reporting often decreases manual administrative labor and speeds compliance audits — these operational savings frequently justify Premium or Diamond engagements.
+        </p>
+
+        <h3 class="mt-4">Billing, taxes, and cancellation</h3>
+        <p class="small text-muted">
+          We support monthly and yearly billing; yearly billing typically receives a standard 20% discount. Taxes such as VAT are calculated at checkout and displayed as separate invoice line items where applicable. Cancellation and refund policies vary by plan and contract; Business and Diamond customers will have contract language that governs termination, data export and handover.
+        </p>
+
+        <h3 class="mt-4">How to decide</h3>
+        <ol class="small">
+          <li><strong>Start</strong> — choose this if you need rapid onboarding and predictable seats with baseline support and capacity.</li>
+          <li><strong>Pro</strong> — choose Pro for advanced analytics, team collaboration and prioritized support.</li>
+          <li><strong>Gold</strong> — choose Gold for dedicated technical management and higher quotas across regions.</li>
+          <li><strong>Premium</strong> — choose Premium for SLAs, compliance support and prioritized roadmap items.</li>
+          <li><strong>Diamond</strong> — choose Diamond for a bespoke, fully-managed implementation with 24/7 escalation and global deployment assistance.</li>
+        </ol>
+
+        <p class="mt-3">
+          If you’d like help selecting a plan, request a short architecture review and a tailored quote from our sales engineering team — they’ll produce a line-item proposal that maps to your expected user counts, integrations and timeline.
+        </p>
+      </section>
     </div>
   </main>
 
   <footer class="py-4 bg-dark text-white text-center">
     <div class="container small">
-      © CapitalFlowX — Cancel anytime, risk-free.
+      © FMC NextPage — Contact Sales for enterprise terms and custom agreements.
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- Scripts: keep Bootstrap JS and site helpers; include-partials will replace header/footer if present -->
+  <script>
+    // client-side auth guard (if requireAuth exists in /js/auth.js)
+    (function(){
+      try{
+        if(typeof requireAuth === 'function'){
+          const user = requireAuth();
+          // If requireAuth returns falsy or throws, the implementation of requireAuth should handle redirect/login flows.
+        }
+      }catch(e){
+        console.warn('Auth check failed or requireAuth not available:', e);
+      }
+    })();
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- include partials injector if present -->
+  <script src="/js/include-partials.js" defer></script>
+
+  <!-- Pricing logic: prices locked to requested tiers (Start 515 → Diamond 13374) -->
+  <script>
+    const PRICING = {
+      start: { usd_month: 515 },
+      pro: { usd_month: 1799 },
+      gold: { usd_month: 3999 },
+      premium: { usd_month: 7499 },
+      diamond: { usd_month: 13374 }
+    };
+
+    function convertUSDToEUR(usd){
+      // lightweight, static estimate — integrate a live FX API at checkout if needed
+      return Math.round(usd * 0.90 * 100) / 100;
+    }
+    function formatCurrency(value, currency){
+      try{
+        return new Intl.NumberFormat(currency === 'EUR' ? 'de-DE' : 'en-US', { style: 'currency', currency }).format(value);
+      }catch(e){
+        return (currency === 'EUR' ? '€' : '$') + value;
+      }
+    }
+    function yearlyTotal(monthly){ return Math.round(monthly * 12 * 0.80 * 100) / 100; }
+
+    (function(){
+      function refreshPrices(){
+        const currency = document.getElementById('currency').value || 'USD';
+        const billing = document.getElementById('billing').value || 'monthly';
+        ['start','pro','gold','premium','diamond'].forEach(function(key){
+          const node = document.querySelector('[data-key="'+key+'"]');
+          if(!node) return;
+          const usd = PRICING[key].usd_month;
+          const eur = convertUSDToEUR(usd);
+          if(billing === 'monthly'){
+            node.textContent = formatCurrency(currency === 'USD' ? usd : eur, currency) + ' / month';
+          } else {
+            const yUSD = yearlyTotal(usd);
+            const yEUR = yearlyTotal(eur);
+            node.textContent = formatCurrency(currency === 'USD' ? yUSD : yEUR, currency) + ' / year';
+          }
+        });
+      }
+      document.getElementById('currency').addEventListener('change', refreshPrices);
+      document.getElementById('billing').addEventListener('change', refreshPrices);
+      document.addEventListener('DOMContentLoaded', refreshPrices);
+    })();
+  </script>
 </body>
-</html>
+                    </html>
