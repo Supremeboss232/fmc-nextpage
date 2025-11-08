@@ -1,0 +1,36 @@
+/* styles.css - shared across pages */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+.hero {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.price {
+  display:flex;
+  align-items:baseline;
+  gap:.75rem;
+}
+.price .old { text-decoration: line-through; color: #6c757d; }
+.price .new { font-size:1.75rem; font-weight:700; color:#28a745; }
+.price .per { font-size:0.8rem; font-weight:400; color:#6c757d; margin-left:.25rem; }
+
+.feature { border-radius:8px; background:#fff; }
+
+.card .price-display .old { text-decoration:line-through; color:#6c757d; margin-right:1rem; }
+.card .price-display .new { color:#28a745; font-weight:700; }
+
+footer small { opacity:.85; }
+
+.btn-primary { background-color:#2b6ef6; border-color:#2b6ef6; }
+.btn-success { background-color:#2fb66b; border-color:#2fb66b; }
+.btn-outline-secondary { color:#2b6ef6; border-color:#2b6ef6; }
+
+.list-group-item { cursor:pointer; }
+
+@media (max-width: 767px) {
+  .hero .display-4 { font-size:1.75rem; }
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payments — CapitalFlowX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; padding-top: 70px; }
+    .card { border: none; border-radius: 0.75rem; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05); }
+    .nav-link.active { font-weight: bold; color: #007bff !important; }
+    .plan-card { transition: all 0.3s ease; }
+    .plan-card:hover { transform: translateY(-5px); }
+    .price { font-size: 1.8rem; font-weight: 600; }
+    .table td, .table th { vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-weight-bold text-primary" href="index.html">CapitalFlowX</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">My Courses</a></li>
+          <li class="nav-item"><a class="nav-link active" href="payments.html">Payments</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="container-fluid px-4 mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="mb-0">Payments & Subscription</h3>
+      <span class="text-muted small">Logged in as <strong id="userName">User</strong></span>
+    </div>
+
+    <!-- CURRENT PLAN -->
+    <div class="alert alert-info">
+      Your current plan: <strong id="currentPlan">Free</strong>
+    </div>
+
+    <!-- UPGRADE OPTIONS -->
+    <h5 class="mt-4 mb-3">Available Plans</h5>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card text-center plan-card">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Pro Plan</h5>
+            <p class="price text-dark">$29<span class="small text-muted">/month</span></p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li>Access to all Pro courses</li>
+              <li>Weekly strategy updates</li>
+              <li>Priority support</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="upgradePlan('Pro')">Upgrade</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card text-center plan-card">
+          <div class="card-body">
+            <h5 class="card-title text-success">Elite Plan</h5>
+            <p class="price text-dark">$59<span class="small text-muted">/month</span></p>
+            <ul class="list-unstyled text-muted small mb-4">
+              <li>All Pro benefits</li>
+              <li>Exclusive mentorship sessions</li>
+              <li>Direct trading room access</li>
+            </ul>
+            <button class="btn btn-success btn-block" onclick="upgradePlan('Elite')">Upgrade</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENT HISTORY -->
+    <h5 class="mt-5 mb-3">Payment History</h5>
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table table-striped mb-0">
+          <thead class="thead-light">
+            <tr>
+              <th>Date</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="paymentHistory">
+            <tr><td colspan="4" class="text-center text-muted py-3">No payments yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-dark text-white text-center mt-5">
+    <div class="container">
+      <p class="mb-0 small">&copy; 2025 CapitalFlowX — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Active link highlight
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if(link.getAttribute('href') === currentPage){
+        link.classList.add('active', 'font-weight-bold', 'text-primary');
+      }
+    });
+
+    // Load user
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(!user){ window.location.href = "login.html"; }
+    document.getElementById('userName').innerText = user.name;
+    document.getElementById('currentPlan').innerText = user.plan || 'Free';
+
+    // Example payment history
+    const payments = [
+      { date: '2025-01-10', plan: 'Pro', amount: '$29', status: 'Success' },
+      { date: '2025-02-10', plan: 'Pro', amount: '$29', status: 'Success' },
+      { date: '2025-03-10', plan: 'Elite', amount: '$59', status: 'Pending' }
+    ];
+
+    const historyEl = document.getElementById('paymentHistory');
+    historyEl.innerHTML = '';
+    payments.forEach(p => {
+      const row = `
+        <tr>
+          <td>${p.date}</td>
+          <td>${p.plan}</td>
+          <td>${p.amount}</td>
+          <td><span class="badge badge-${p.status === 'Success' ? 'success' : 'warning'}">${p.status}</span></td>
+        </tr>`;
+      historyEl.insertAdjacentHTML('beforeend', row);
+    });
+
+    // Upgrade logic placeholder
+    function upgradePlan(plan){
+      alert(`Redirecting to payment gateway for ${plan} Plan...`);
+      // Later: POST /api/payments or Stripe/Flutterwave integration
+    }
+
+    function logout(){
+      localStorage.removeItem('user');
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

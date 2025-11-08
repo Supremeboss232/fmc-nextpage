@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile — CapitalFlowX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; padding-top: 70px; }
+    .card { border: none; border-radius: 0.75rem; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05); }
+    .nav-link.active { font-weight: bold; color: #007bff !important; }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+    .form-control:focus { box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25); }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand font-weight-bold text-primary" href="index.html">CapitalFlowX</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">My Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="payments.html">Payments</a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="support.html">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROFILE SECTION -->
+  <div class="container-fluid px-4 mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="mb-0">My Profile</h3>
+      <span class="text-muted small">Member: <strong id="userPlan">Free</strong></span>
+    </div>
+
+    <div class="row">
+      <!-- LEFT COLUMN -->
+      <div class="col-md-4 mb-4">
+        <div class="card text-center p-4">
+          <img src="https://via.placeholder.com/120" id="userAvatar" class="avatar mb-3 border">
+          <h5 id="userName" class="mb-1">User Name</h5>
+          <p id="userEmail" class="text-muted small">user@example.com</p>
+          <input type="file" id="avatarUpload" class="form-control-file small mt-2 mb-3">
+          <button class="btn btn-outline-primary btn-sm" onclick="updateAvatar()">Update Photo</button>
+          <hr>
+          <button class="btn btn-primary btn-sm btn-block" onclick="upgrade()">Upgrade Plan</button>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-md-8 mb-4">
+        <div class="card p-4 mb-4">
+          <h5 class="mb-3">Account Information</h5>
+          <form id="profileForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Full Name</label>
+                <input type="text" id="name" class="form-control" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Phone</label>
+                <input type="text" id="phone" class="form-control">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Location</label>
+                <input type="text" id="location" class="form-control">
+              </div>
+            </div>
+            <button class="btn btn-success btn-block mt-3" type="submit">Save Changes</button>
+          </form>
+        </div>
+
+        <div class="card p-4">
+          <h5 class="mb-3">Change Password</h5>
+          <form id="passwordForm">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="password" id="currentPassword" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" id="newPassword" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" id="confirmPassword" class="form-control" required>
+            </div>
+            <button class="btn btn-warning btn-block mt-3" type="submit">Update Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-dark text-white text-center mt-5">
+    <div class="container">
+      <p class="mb-0 small">&copy; 2025 CapitalFlowX — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Highlight active link
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if(link.getAttribute('href') === currentPage){
+        link.classList.add('active', 'font-weight-bold', 'text-primary');
+      }
+    });
+
+    // Load user data
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(!user){ window.location.href = "login.html"; }
+
+    document.getElementById('userName').innerText = user.name;
+    document.getElementById('userEmail').innerText = user.email;
+    document.getElementById('userPlan').innerText = user.plan || 'Free';
+    document.getElementById('name').value = user.name;
+    document.getElementById('email').value = user.email;
+
+    // Handle profile update
+    document.getElementById('profileForm').addEventListener('submit', e => {
+      e.preventDefault();
+      user.name = document.getElementById('name').value;
+      user.email = document.getElementById('email').value;
+      user.phone = document.getElementById('phone').value;
+      user.location = document.getElementById('location').value;
+      localStorage.setItem('user', JSON.stringify(user));
+      alert('Profile updated successfully.');
+      location.reload();
+    });
+
+    // Password update simulation
+    document.getElementById('passwordForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const newPass = document.getElementById('newPassword').value;
+      const confirm = document.getElementById('confirmPassword').value;
+      if(newPass !== confirm) return alert('Passwords do not match.');
+      alert('Password updated successfully (simulated).');
+    });
+
+    // Avatar update
+    function updateAvatar(){
+      const file = document.getElementById('avatarUpload').files[0];
+      if(!file) return alert('Please select a photo.');
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('userAvatar').src = e.target.result;
+        user.avatar = e.target.result;
+        localStorage.setItem('user', JSON.stringify(user));
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function upgrade(){
+      window.location.href = "payments.html";
+    }
+
+    function logout(){
+      localStorage.removeItem('user');
+      window.location.href = "login.html";
+    }
+  </script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

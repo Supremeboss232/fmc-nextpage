@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "f33265dd-b03a-461b-a9c6-29fd2710c6cf",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "$2b$10$argGFy.hVrqWI1.OevhbxO/1CEkRVzn8ebOVAwtbyLGAuBegqmbIK",
+      "role": "admin",
+      "joinDate": "2025-11-03T18:24:05.963Z",
+      "status": "active",
+      "createdAt": 1762194245964
+    },
+    {
+      "id": "a3b9188f-9aa9-4e95-b220-89c1fe007d4a",
+      "name": "Supremercy Vincent",
+      "email": "sSupremercyworld@gmail.com",
+      "password": "$2b$10$Oq4Ofb3Q5ZNww00.TpCrrOefOAcVUW7He8ae0t6F3eibVuEkJI8Py",
+      "role": "user",
+      "joinDate": "2025-11-08T13:44:06.909Z",
+      "status": "active",
+      "createdAt": 1762609446909
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Courses — The Real World</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<script src="js/auth.js"></script>
+<script>
+  // This ensures user must be logged in before viewing this page
+  const user = requireAuth();
+</script>
+  </script>
+  <script src="/js/auth.js"></script>
+
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold" href="index.html">CapitalFlowX</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="success.html">Success Stories</a></li>
+          <li class="nav-item"><a class="nav-link" href="access.html">Access</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="btn btn-primary btn-sm ml-2" href="login.html">Join / Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- COURSES FULL LIST -->
+  <main class="py-5">
+    <div class="container">
+      <h1 class="mb-4">Courses & Tracks</h1>
+      <p class="text-muted mb-5">Practical, high-impact training for modern wealth creation. Learn by doing with real strategies and live guidance.</p>
+
+      <div class="row">
+        <!-- Left column: list -->
+        <div class="col-md-8">
+          <div class="list-group mb-4">
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Forex</h5>
+                <small>Beginner → Advanced</small>
+              </div>
+              <p class="mb-1 small">Master currency markets: price action, liquidity, leveraged strategies and risk control.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Copy Trading</h5>
+                <small>Platform selection & portfolio</small>
+              </div>
+              <p class="mb-1 small">Profit by copying expert traders. Platform selection, signal evaluation and portfolio design.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Stocks</h5>
+                <small>Technical focus</small>
+              </div>
+              <p class="mb-1 small">Technical analysis to identify asymmetric risk/reward opportunities and grow capital.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Crypto Investing</h5>
+                <small>Long/Medium/Short</small>
+              </div>
+              <p class="mb-1 small">Attack crypto markets from multiple time horizons: long-term holds to short-term trades.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Freelancing</h5>
+                <small>Client pipeline & premium pricing</small>
+              </div>
+              <p class="mb-1 small">Get paid a premium price for simple tasks and build a list of loyal clients.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">UGC (New)</h5>
+                <small>Influencer & marketer strategies</small>
+              </div>
+              <p class="mb-1 small">Strategies to boost engagement and generate income across platforms.</p>
+            </a>
+
+            <a href="https://youtube.com/@capitalflowx" target="_blank" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Content Creation (New)</h5>
+                <small>Digital asset creation & monetization</small>
+              </div>
+              <p class="mb-1 small">Create valuable digital assets (videos, articles) and learn how to sell them.</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right column: extras -->
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">New skills & Campuses</h5>
+              <p class="small">Fitness Campus • Artificial Intelligence integration • Social Media Marketing (coming soon)</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">Quick actions</h6>
+              <a href="pricing.html" class="btn btn-primary btn-block mb-2">Join Now</a>
+              <a href="login.html" class="btn btn-outline-secondary btn-block">Login</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container small">
+      © CapitalFlowX — All content for education purposes only.
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    <!-- COURSES PREVIEW -->
+    <section class="py-5 bg-light">
+        <div class="container">
+        <h2 class="mb-4 text-center">Featured Courses</h2>
+        <div class="row">
+    
+            <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                <h5 class="card-title
